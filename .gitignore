@@ -1,2 +1,2 @@
-banner.elf
-db-data
+*.elf
+*.exe

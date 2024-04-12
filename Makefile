@@ -17,7 +17,7 @@ docker-down:
 	docker-compose -f docker-compose.dev.yaml down
 
 docker-build:
-	docker-compose -f docker-compose.dev.yaml up --build
+	docker-compose -f docker-compose.dev.yaml up --build -d
 
 docker-restart:
 	docker-compose -f docker-compose.dev.yaml restart
