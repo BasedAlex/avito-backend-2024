@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+
+  postgres:
+    image: 'postgres:14.2'
+    ports:
+      - "5438:5432"
+    restart: always
+    deploy:
+      mode: replicated
+      replicas: 1
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: banner
+    # volumes:
+    #   - ./db-data/postgres/:/var/lib/postgresql/data/
+    volumes:
+      - ./db-scripts/dev:/docker-entrypoint-initdb.d
+    
+  postgres_test:
+    image: 'postgres:14.2'
+    ports:
+      - "5439:5432" 
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: banner_test 
+    # volumes:
+    #   - ./db-data/postgres_test/:/var/lib/postgresql/data/
+    volumes:
+      - ./db-scripts/test:/docker-entrypoint-initdb.d
+
+  redis:
+    image: redis:latest
+    restart: always
+    ports: 
+      - "6379:6379"

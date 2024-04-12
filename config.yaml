@@ -1,0 +1,6 @@
+DB_CONNECT: user=postgres password=password host=localhost port=5438 dbname=banner sslmode=disable
+cancel: 15
+userToken: userToken
+adminToken: adminToken
+port: 8080
+redisConn: redis://localhost:6379
