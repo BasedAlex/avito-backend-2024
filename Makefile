@@ -2,8 +2,7 @@ all: compile
 
 compile:
 	echo "Compiling for linux"
-
-	GOOS=linux GOARCH=amd64 cd cmd/banner && go build -o ../../banner.elf .
+	cd cmd/banner && GOOS=linux GOARCH=amd64 go build -o ../../banner.elf .
 
 run:
 	./banner.elf

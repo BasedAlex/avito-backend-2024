@@ -25,5 +25,5 @@ func (c *Cache) Get(ctx context.Context, key string) (string, error) {
 }
 
 func (c *Cache) Set(ctx context.Context, key, value string) error {
-	return c.redis.Set(ctx, key, value, time.Minute).Err()
+	return c.redis.Set(ctx, key, value, time.Minute * 5).Err()
 }
